@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+    String username = (String) session.getAttribute("username");
+    if (username == null) {
+        response.sendRedirect("index.jsp"); // Se l'utente non è autenticato, reindirizzalo alla pagina di login
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
