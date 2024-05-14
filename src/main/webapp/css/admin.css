@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+
+body{
+    background-image: url("../immagini/navbar.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    overflow: hidden;
+  }
+
+.title {
+    font-size:50px;
+    font-family: "Jua", sans-serif;
+    color: #000;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.links li, a{
+    font-size:30px;
+    font-family: "Jua", sans-serif;
+    color: #000;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 20px;
+    transition: all 0.3 ease 0s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10%;
+    width: 80%;
+    height: 150px;
+}
+
+.links {
+    list-style: none;
+}
+
+.div-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-family: "Jua", sans-serif;
+}
+
+.div-container div {
+    margin: 0 auto;
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.out_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffe48a;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  width: 100%;
+  height: auto;
+  font-style: inherit;
+}
+
+.table {
+    overflow: auto;
+    width: 100%;
+}
+
+.btnDelete {
+  	width: fit-content;
+  	font-size: 10px;
+  	background: #fb9700;
+ 	  border-radius: 10px;
+ 	  font-weight: 800;
+  	box-shadow: 3px 3px 0px 0px #E99F4C;
+}
