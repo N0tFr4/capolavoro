@@ -57,7 +57,7 @@ async function addTransaction() {
 	};
 	
 	if(type=="income"){
-		var response = await fetch("NOMEDELLASERVLET?amount=" + amount + "&date=" + date + "&type=" + type + "&sender=" + sender, options);
+		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&sender=" + sender, options);
 		if (response.ok) {
 			alert('Transaction successfully added!');
 			window.location.replace(home.jsp);
@@ -66,7 +66,7 @@ async function addTransaction() {
 			throw new Error('There was an error in the AJAX request');
 		}
 	}else{
-		var response = await fetch("NOMEDELLASERVLET?amount=" + amount + "&date=" + date + "&type=" + type + "&reason=" + reason, options);
+		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&reason=" + reason, options);
 		if (response.ok) {
 			alert('Transaction successfully added!');
 			window.location.replace(home.jsp);

@@ -5,6 +5,8 @@
     String username = (String) session.getAttribute("username");
     if (username == null) {
         response.sendRedirect("index.jsp"); // Se l'utente non è autenticato, reindirizzalo alla pagina di login
+    } else if(username!="admin"){
+    	response.sendRedirect("home.jsp");
     }
 %>
 <!DOCTYPE html>
