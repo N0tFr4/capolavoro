@@ -7,6 +7,12 @@ async function wrapper() {
 	await fillTables();
 }
 
+document.getElementById("amount").addEventListener("input", function(event) {
+	let valore = event.target.value;
+	event.target.value = valore.replace(/\D/g, '');
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	var incomeButton = document.querySelector(".income");
 	var outcomeButton = document.querySelector(".outcome");
