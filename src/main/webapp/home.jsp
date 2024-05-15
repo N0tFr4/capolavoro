@@ -19,6 +19,7 @@
         <title> in&out </title>
         <link rel="stylesheet" href="css/home.css" type="text/css" />
         <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="immagini/favicon.jpeg" />
     </head>
 
     <body>
@@ -40,7 +41,7 @@
 
         <div id="overlay" class="overlay">
             <div id="form-container" class="form-container">
-                <form class="form">
+                <form class="form" accept-charset="utf-8">
                     <div class="form-group" onsubmit="wrapper()">
                       <label for="amount">Amount</label>
                       <input required placeholder="How much?" name="amount" id="amount" type="text">
@@ -51,11 +52,11 @@
                     </div>
                     <div class="form-group">
                         <label for="sender">Sender (ONLY FOR AN INCOME!!!)</label>
-                        <input required="false" name="sender" placeholder="Who send you this?" id="sender" type="text">
+                        <input name="sender" placeholder="Who send you this?" id="sender" type="text">
                     </div>
                     <div class="form-group">
                         <label for="reason">Reason (ONLY FOR AN OUTCOME!!!)</label>
-                        <input required name="reason" placeholder="Why?" id="reason" type="text">
+                        <input name="reason" placeholder="Why?" id="reason" type="text">
                     </div>
                     <button type="submit" class="form-submit-btn">Add</button>
                 </form>

@@ -1,7 +1,3 @@
-/**
- * 
- 
-
 
 fillTables();
 var type = "";
@@ -55,8 +51,8 @@ async function addTransaction() {
 	var options = {
 		method: 'POST'
 	};
-	
-	if(type=="income"){
+
+	if (type == "income") {
 		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&sender=" + sender, options);
 		if (response.ok) {
 			alert('Transaction successfully added!');
@@ -65,7 +61,7 @@ async function addTransaction() {
 			alert('There was an error during the adding of the transaction.');
 			throw new Error('There was an error in the AJAX request');
 		}
-	}else{
+	} else {
 		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&reason=" + reason, options);
 		if (response.ok) {
 			alert('Transaction successfully added!');
@@ -77,9 +73,10 @@ async function addTransaction() {
 	}
 }
 
+
 async function fillTables() {
 
-	const response = await fetch('NOMEDELLASERVLET');
+	const response = await fetch('selectalltransactions');
 
 	var transactionJSON = await response.json();
 
@@ -214,7 +211,7 @@ async function fillTables() {
 	new_tbody_outcome.id = 'old_tbody_outcome';
 }
 
-async function deleteTransaction(btn) {
+/*async function deleteTransaction(btn) {
 	var id = btn.getAttribute('data-contact-id');
 
 	var options = {
@@ -250,9 +247,6 @@ async function modifyTransaction(btn) {
 		alert('Errore durante l\'eliminamento del contatto.');
 		throw new Error('Errore nella richiesta AJAX');
 	}
-}
- 
- 
- 
- 
- */
+}*/
+
+

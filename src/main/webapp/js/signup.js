@@ -24,11 +24,11 @@ $(document).ready(function() {
 					$("#password").val('');
 
 					alert("User registered successfully!");
-					window.location.href = '/capolavoro/index.jsp';
+					window.location.href = 'index.jsp';
 				},
 				error: function() {
 					alert("Error!");
-					window.location.href = '/capolavoro/signup.jsp';
+					window.location.href = 'signup.jsp';
 				}
 			});
 		});

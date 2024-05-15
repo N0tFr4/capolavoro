@@ -22,12 +22,13 @@ $(document).ready(function() {
 						window.location.href = 'home.jsp';
 					}else{
 						alert('Incorrect credentials!')
-					window.location.href = 'index.jsp';
+						window.location.href = 'index.jsp';
 					}
 					
 				},
 				error: function() {
-					alert('Error!')
+					alert('Error!');
+					window.location.href = 'index.jsp';
 				}
 			});
 		});

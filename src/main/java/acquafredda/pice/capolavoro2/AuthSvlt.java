@@ -100,6 +100,7 @@ public class AuthSvlt extends HttpServlet {
 					flag=true;
 				}
 			}
+			
 			if(flag) {
 				response.getWriter().write("trovato");
 				HttpSession session = request.getSession();
@@ -108,7 +109,6 @@ public class AuthSvlt extends HttpServlet {
 				response.getWriter().write("non trovato");
 			}
 		
-			
 		} catch (SQLException e) {
 			e.printStackTrace();}
 		

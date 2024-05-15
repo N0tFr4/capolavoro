@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -39,19 +40,25 @@ public class InsertTransactionSvlt extends HttpServlet {
 		String date=request.getParameter("date");
 		String type=request.getParameter("type");
 		
+		int userId = 0;
+		String sender = null;
+		String reason = null;
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date dateDate = sdf.parse(date);
+		try {
+			Date dateDate = sdf.parse(date);
+		
 		int amountInt = Integer.parseInt(amount);
 		
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("username");
 		
 		if(type == "income") {
-			String sender=request.getParameter("sender");
-			String reason = null;
+			sender=request.getParameter("sender");
+			reason = null;
 		}else {
-			String reason=request.getParameter("reason");
-			String sender = null;
+			reason=request.getParameter("reason");
+			sender = null;
 		}
 		
 		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
@@ -67,8 +74,10 @@ public class InsertTransactionSvlt extends HttpServlet {
 			
 			ResultSet rs = ps.executeQuery();
 			
+			
+			
 			if(rs.next()) {
-				//prendi l'id dalla query
+				userId = rs.getInt("user_id");
 			}
 			
 			String query2="INSERT INTO transactions (transaction_type,transaction_amount,transaction_date,transaction_sender,transaction_reason,transaction_usr_id) VALUES (?,?,?,?,?,?)";
@@ -76,13 +85,19 @@ public class InsertTransactionSvlt extends HttpServlet {
 			ps2.setString(1, type);
 			ps2.setInt(2, amountInt);
 			ps2.setDate(3, new java.sql.Date(dateDate.getTime()));
-			
-			
+			ps2.setString(4, sender);
+			ps2.setString(5, reason);
+			ps2.setInt(6, userId);
 			
 			int rowInserted2= ps2.executeUpdate();
 			System.out.println(rowInserted2);
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

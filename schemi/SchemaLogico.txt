@@ -1,0 +1,5 @@
+SCHEMA LOGICO
+
+Users(/user_id/, user_nickname, user_password, user_name, user_surname, user_phone_number)
+
+Transactions(/transaction_id/, &transaction_usr_id&, transaction_type, transaction_amount, transaction_date, transaction_sender*, transaction_reason*)
