@@ -19,10 +19,10 @@ $(document).ready(function() {
 					
 					if(response=="trovato"){
 						alert('Login successfully completed!');
-						window.location.href = '/capolavoro2/home.jsp';
+						window.location.href = 'home.jsp';
 					}else{
 						alert('Incorrect credentials!')
-					window.location.href = '/capolavoro2/index.jsp';
+					window.location.href = 'index.jsp';
 					}
 					
 				},

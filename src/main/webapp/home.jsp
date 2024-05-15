@@ -28,7 +28,7 @@
                 <ul class="links">
                     <li><a href="home.jsp">Home</a></li>
                     <li><a href="info.jsp">Your Account</a></li>
-                    <li><a href="/capolavoro2/logoutsvlt">Logout</a></li>
+                    <li><a href="logoutsvlt">Logout</a></li>
                 </ul>
             </nav>
         </header>
