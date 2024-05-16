@@ -79,6 +79,36 @@ async function addTransaction() {
 	}
 }
 
+/*async function addTransaction(){
+	
+	$.ajax({
+		url: 'inserttransactionsvlt',
+		type: 'POST',
+		data:{
+			amount: $("#amount").val(),
+			date: $("#date").val(),
+			sender: $("#sender").val(),
+			reason: $("#reason").val(),
+			type: type
+		},
+		async: false,
+		success: function() {
+			amount: $("#amount").val('');
+			date: $("#date").val('');
+			sender: $("#sender").val('');
+			reason: $("#reason").val('');
+			
+			alert('Transaction successfully added!');
+			window.location.replace(home.jsp);
+		},
+		error: function() {
+			alert('There was an error during the adding of the transaction.');
+			throw new Error('There was an error in the AJAX request');
+		}
+	});
+	
+}*/
+
 
 async function fillTables() {
 

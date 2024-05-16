@@ -98,6 +98,7 @@ public class AuthSvlt extends HttpServlet {
 			while(set.next()) {
 				if(username.equals(set.getString(2)) && passwordHash.equals(set.getString(3))) {
 					flag=true;
+					break;
 				}
 			}
 			

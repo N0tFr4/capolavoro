@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-   <%
-    String username = (String) session.getAttribute("username");
-    if (username != null) {
-        //out.println("Benvenuto, " + username);
-        if(username.equals("admin")){
-        	response.sendRedirect("admin.jsp");
-        }
-    } else {
-        response.sendRedirect("index.jsp"); // Se l'utente non è autenticato, reindirizzalo alla pagina di login
-    }
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -101,6 +90,7 @@
                 </div>
             </div>
         </div>
-        <script src="js/home.js"></script>
+        
+        <script type="text/javascript" src="js/home.js"></script>
     </body>
 </html>

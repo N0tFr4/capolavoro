@@ -59,13 +59,6 @@ public class InsertSvlt extends HttpServlet {
 			int rowInserted=ps.executeUpdate();
 			System.out.println(rowInserted);
 			
-			String query2="INSERT INTO roles (username,role) VALUES (?,?)";
-			PreparedStatement ps2=conn.prepareStatement(query2);
-			ps2.setString(1, username);
-			ps2.setString(2, "subscriber");
-			
-			int rowInserted2= ps2.executeUpdate();
-			System.out.println(rowInserted2);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
