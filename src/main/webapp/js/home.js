@@ -1,10 +1,10 @@
 
-fillTables();
+//fillTables();
 var type = "";
 
 async function wrapper() {
 	await addTransaction();
-	await fillTables();
+	//await fillTables();
 }
 
 document.getElementById("amount").addEventListener("input", function(event) {
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 });
 
-async function addTransaction() {
+/*async function addTransaction() {
 	var amount = document.getElementById('amount').value;
 	var date = document.getElementById('date').value;
 	var sender = document.getElementById('sender').value;
@@ -57,29 +57,33 @@ async function addTransaction() {
 	var options = {
 		method: 'POST'
 	};
-
-	if (type == "income") {
-		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&sender=" + sender, options);
+	
+	try {
+		var url = `inserttransactionsvlt?amount=${amount}&date=${date}&type=${type}`;
+		
+		if (type === "income") {
+			console.log("tipo INCOME");
+			url += `&sender=${sender}`;
+		} else {
+			console.log("tipo OUTCOME");
+			url += `&reason=${reason}`;
+		}
+		
+		var response = await fetch(url, options);
+		
 		if (response.ok) {
 			alert('Transaction successfully added!');
-			window.location.replace(home.jsp);
+			window.location.replace("home.jsp");
 		} else {
 			alert('There was an error during the adding of the transaction.');
-			throw new Error('There was an error in the AJAX request');
 		}
-	} else {
-		var response = await fetch("inserttransactionsvlt?amount=" + amount + "&date=" + date + "&type=" + type + "&reason=" + reason, options);
-		if (response.ok) {
-			alert('Transaction successfully added!');
-			window.location.replace(home.jsp);
-		} else {
-			alert('There was an error during the adding of the transaction.');
-			throw new Error('There was an error in the AJAX request');
-		}
+	} catch (error) {
+		console.error('Network or server error:', error);
+		alert('There was a network or server error.');
 	}
-}
+}*/
 
-/*async function addTransaction(){
+async function addTransaction(){
 	
 	$.ajax({
 		url: 'inserttransactionsvlt',
@@ -93,10 +97,10 @@ async function addTransaction() {
 		},
 		async: false,
 		success: function() {
-			amount: $("#amount").val('');
-			date: $("#date").val('');
-			sender: $("#sender").val('');
-			reason: $("#reason").val('');
+			document.getElementById('amount').value = "";
+			document.getElementById('date').value = "";
+			document.getElementById('sender').value = "";
+			document.getElementById('reason').value = "";
 			
 			alert('Transaction successfully added!');
 			window.location.replace(home.jsp);
@@ -107,7 +111,7 @@ async function addTransaction() {
 		}
 	});
 	
-}*/
+}
 
 
 async function fillTables() {

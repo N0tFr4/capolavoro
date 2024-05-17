@@ -40,6 +40,10 @@ public class InsertTransactionSvlt extends HttpServlet {
 		String date=request.getParameter("date");
 		String type=request.getParameter("type");
 		
+		System.out.println("amount = "+ amount);
+		System.out.println("amount = "+ date);
+		System.out.println("amount = "+ type);
+		
 		int userId = 0;
 		String sender = null;
 		String reason = null;
