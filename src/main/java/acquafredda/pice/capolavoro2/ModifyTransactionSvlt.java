@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,16 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class InsertTransactionSvlt
+ * Servlet implementation class ModifyTransactionSvlt
  */
-@WebServlet("/inserttransactionsvlt")
-public class InsertTransactionSvlt extends HttpServlet {
+@WebServlet("/modifytransactionsvlt")
+public class ModifyTransactionSvlt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertTransactionSvlt() {
+    public ModifyTransactionSvlt() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,6 +35,8 @@ public class InsertTransactionSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		Integer id= Integer.valueOf(request.getParameter("id"));
 		String amount=request.getParameter("amount");
 		String date=request.getParameter("date");
 		String type=request.getParameter("typeT");
@@ -57,7 +58,6 @@ public class InsertTransactionSvlt extends HttpServlet {
 		int amountInt = Integer.parseInt(amount);
 		
 		HttpSession session = request.getSession();
-		Integer id =(Integer) session.getAttribute("idUser");
 		
 		if(type == "income") {
 			reason = null;
@@ -84,17 +84,17 @@ public class InsertTransactionSvlt extends HttpServlet {
 //				userId = rs.getInt("user_id");
 //			}
 			
-			String query2="INSERT INTO transactions (transaction_type,transaction_amount,transaction_date,transaction_sender,transaction_reason,transaction_usr_id) VALUES (?,?,?,?,?,?)";
+			String query2="UPDATE transactions SET transaction_amount = ?, transaction_date = ?, transaction_sender = ?, transaction_reason = ? WHERE transaction_id = ?";
 			PreparedStatement ps2=conn.prepareStatement(query2);
-			ps2.setString(1, type);
-			ps2.setInt(2, amountInt);
-			ps2.setDate(3, new java.sql.Date(dateDate.getTime()));
-			ps2.setString(4, sender);
-			ps2.setString(5, reason);
-			ps2.setInt(6, id);
+			ps2.setInt(1, amountInt);
+			ps2.setDate(2, new java.sql.Date(dateDate.getTime()));
+			ps2.setString(3, sender);
+			ps2.setString(4, reason);
+			ps2.setInt(5, id);
 			
 			int rowInserted2= ps2.executeUpdate();
 			System.out.println(rowInserted2);
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

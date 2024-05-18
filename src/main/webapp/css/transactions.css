@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 body{
     background-image: url("../immagini/navbar.png");
@@ -39,52 +39,105 @@ header {
     list-style: none;
 }
 
-.button-container {
+.div-container {
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     display: flex;
     justify-content: center; 
     align-items: center;
-}
-
-.button-container button {
-    margin: 0 15%;
-    width: 200px;
-    height: 200px;
-}
-
-.outcome {
-    background: rgb(255, 0, 0);
-    color: #000000;
-    border: 2px solid rgb(255, 0, 0);
-    padding: 20px 50px;
-    margin: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 3px 5px #aaa;
-    cursor: pointer;
-    border-radius: 40% 80% 40% 80%;
     font-family: "Jua", sans-serif;
 }
 
-.income {
-    background: rgb(0, 255, 0);
-    color: #000000;
-    border: 2px solid rgb(0, 255, 0);
-    padding: 20px 50px;
-    margin: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 3px 5px #aaa;
-    cursor: pointer;
-    border-radius: 80% 40% 80% 40%;
-    font-family: "Jua", sans-serif;
+.div-container div {
+  	margin: 0 auto;
+    flex-grow: 1;
+    max-width: 500px;
 }
+
+.out_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffe48a;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  width: 100%;
+  height: auto;
+  font-style: inherit;
+}
+
+.table {
+    overflow: auto;
+    text-align: center;
+    width: 100%;
+}
+
+/*.table #lstContatti {
+    height: 100%;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: center;
+}
+
+.table #lstIncome th {
+    background-color: #EDDCD9;
+    color: #DE5499;
+    padding: 5px;
+}
+
+.table #lstIncome td {
+    background-color: #EDDCD9;
+    color: #264143;
+    padding: 5px;
+}*/
+
+.btnDelete {
+  	width: fit-content;
+  	font-size: 10px;
+  	background: #fb9700;
+ 	  border-radius: 10px;
+ 	  font-weight: 800;
+  	box-shadow: 3px 3px 0px 0px #E99F4C;
+}
+
+.btnModifyIncome {
+  	width: fit-content;
+  	font-size: 10px;
+  	background: #fb9700;
+ 	  border-radius: 10px;
+ 	  font-weight: 800;
+  	box-shadow: 3px 3px 0px 0px #E99F4C;
+}
+
+.btnModifyOutcome {
+  	width: fit-content;
+  	font-size: 10px;
+  	background: #fb9700;
+ 	  border-radius: 10px;
+ 	  font-weight: 800;
+  	box-shadow: 3px 3px 0px 0px #E99F4C;
+}
+
+/*.table #lstOutcome th {
+  background-color: #EDDCD9;
+  color: #DE5499;
+  padding: 5px;
+}
+
+.table #lstIncome td {
+  background-color: #EDDCD9;
+  color: #264143;
+  padding: 5px;
+}*/
 
 .overlay {
     display: none;

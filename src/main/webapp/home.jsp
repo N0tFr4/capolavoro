@@ -17,6 +17,7 @@
             <nav>
                 <ul class="links">
                     <li><a href="home.jsp">Home</a></li>
+                    <li><a href="selectalltransactionssvlt">Your Transactions</a></li>
                     <li><a href="info.jsp">Your Account</a></li>
                     <li><a href="logoutsvlt">Logout</a></li>
                 </ul>
@@ -52,44 +53,7 @@
             </div>
         </div>
         
-        <div class="div-container">
-            <div class="output_container">
-                <div class="out_area">
-                    <table id="lstIncome" class="table">
-                        <thead>
-                            <tr>
-                                <th>Amount</th>
-                                <th>Date</th>
-                                <th>Sender</th>
-                                <th>Delete</th>
-                                <th>Modify</th>
-                            </tr>
-                        </thead>
-                        <tbody id="old_tbody_income">
-                        
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="output_container">
-                <div class="out_area">
-                    <table id="lstOutcome" class="table">
-                        <thead>
-                            <tr>
-                                <th>Amount</th>
-                                <th>Date</th>
-                                <th>Reason</th>
-                                <th>Delete</th>
-                                <th>Modify</th>
-                            </tr>
-                        </thead>
-                        <tbody id="old_tbody_outcome">
-                        
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+       
         
         <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="js/home.js"></script>
