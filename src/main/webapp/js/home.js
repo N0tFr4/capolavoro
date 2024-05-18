@@ -1,11 +1,7 @@
 
-//fillTables();
-var type = "";
+fillTables();
+var typeT = "";
 
-async function wrapper() {
-	await addTransaction();
-	//await fillTables();
-}
 
 document.getElementById("amount").addEventListener("input", function(event) {
 	let valore = event.target.value;
@@ -20,12 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	incomeButton.addEventListener("click", function() {
 		showForm();
-		type = incomeButton.getAttribute('data-type');
+		typeT = incomeButton.getAttribute('data-type');
 	});
 
 	outcomeButton.addEventListener("click", function() {
 		showForm();
-		type = incomeButton.getAttribute('data-type');
+		typeT = outcomeButton.getAttribute('data-type');
 	});
 
 	function showForm() {
@@ -83,17 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 }*/
 
-async function addTransaction(){
-	
+/*async function addTransaction() {
+
 	$.ajax({
 		url: 'inserttransactionsvlt',
 		type: 'POST',
-		data:{
+		data: {
 			amount: $("#amount").val(),
 			date: $("#date").val(),
 			sender: $("#sender").val(),
 			reason: $("#reason").val(),
-			type: type
+			typeT: typeT
 		},
 		async: false,
 		success: function() {
@@ -101,7 +97,7 @@ async function addTransaction(){
 			document.getElementById('date').value = "";
 			document.getElementById('sender').value = "";
 			document.getElementById('reason').value = "";
-			
+
 			alert('Transaction successfully added!');
 			window.location.replace(home.jsp);
 		},
@@ -110,9 +106,39 @@ async function addTransaction(){
 			throw new Error('There was an error in the AJAX request');
 		}
 	});
-	
-}
 
+}*/
+
+$(document).ready(function() {
+	$('#addTrans').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+			url: 'inserttransactionsvlt',
+			type: 'POST',
+			data: {
+				amount: $("#amount").val(),
+				date: $("#date").val(),
+				sender: $("#sender").val(),
+				reason: $("#reason").val(),
+				typeT: typeT 
+			},
+			async: false,
+			success: function() {
+				document.getElementById('amount').value = "";
+				document.getElementById('date').value = "";
+				document.getElementById('sender').value = "";
+				document.getElementById('reason').value = "";
+
+				alert('Transaction successfully added!');
+				fillTables();
+			},
+			error: function() {
+				alert('There was an error during the adding of the transaction.');
+				throw new Error('There was an error in the AJAX request');
+			}
+		});
+	});
+});
 
 async function fillTables() {
 
@@ -173,7 +199,7 @@ async function fillTables() {
 			ModifyBtn.setAttribute('data-contact-id', '' + id + '');
 			ModifyBtn.setAttribute('onclick', 'modifyTransaction(this)');
 
-			ModifyBtn.appendChild(DeleteBtn);
+			ModifyForm.appendChild(ModifyBtn);
 
 			tdModify.appendChild(DeleteForm);
 
@@ -224,7 +250,7 @@ async function fillTables() {
 			ModifyBtn.setAttribute('data-contact-id', '' + id + '');
 			ModifyBtn.setAttribute('onclick', 'modifyTransaction(this)');
 
-			ModifyBtn.appendChild(DeleteBtn);
+			ModifyForm.appendChild(ModifyBtn);
 
 			tdModify.appendChild(DeleteForm);
 
@@ -251,7 +277,7 @@ async function fillTables() {
 	new_tbody_outcome.id = 'old_tbody_outcome';
 }
 
-/*async function deleteTransaction(btn) {
+async function deleteTransaction(btn) {
 	var id = btn.getAttribute('data-contact-id');
 
 	var options = {
@@ -268,7 +294,7 @@ async function fillTables() {
 		throw new Error('Errore nella richiesta AJAX');
 	}
 }
-
+/*
 async function modifyTransaction(btn) {
 	var id = btn.getAttribute('data-contact-id');
 

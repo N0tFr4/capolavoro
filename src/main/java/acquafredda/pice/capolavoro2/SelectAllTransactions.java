@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -44,9 +45,14 @@ public class SelectAllTransactions extends HttpServlet {
 		Connection conn;
 		try {
 			
+			HttpSession session = request.getSession();
+			Integer id =(Integer) session.getAttribute("idUser");
+			
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-			String query="SELECT * FROM transactions";
+			
+			String query="SELECT * FROM transactions WHERE transaction_usr_id = ?";
 			PreparedStatement ps=conn.prepareStatement(query);
+			ps.setInt(1,id);
 			ResultSet rs = ps.executeQuery();
 		
 			JSONObject objgran = new JSONObject();
@@ -56,12 +62,11 @@ public class SelectAllTransactions extends HttpServlet {
 			while(rs.next()) {
 				JSONObject obj = new JSONObject();
 				
-				obj.put("transactions_id", rs.getInt("transactions_id"));
-				obj.put("transactions_type", rs.getString("transactions_type"));
-				obj.put("transactions_date", rs.getString("transactions_date"));
-				obj.put("transactions_sender", rs.getString("transactions_sender"));
-				obj.put("transactions_reason", rs.getString("transactions_reason"));
-				obj.put("transactions_usr_id", rs.getString("transactions_usr_id"));
+				obj.put("id", rs.getInt(1));
+				obj.put("type", rs.getString(2));
+				obj.put("date", rs.getString(3));
+				obj.put("sender", rs.getString(4));
+				obj.put("reason", rs.getString(5));
 
 				array.add(obj);
 			}

@@ -81,6 +81,7 @@ public class AuthSvlt extends HttpServlet {
 		
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
+		Integer idUser = null;
 		
 		String passwordHash = calcolaHashMD5(password);
 		
@@ -98,6 +99,7 @@ public class AuthSvlt extends HttpServlet {
 			while(set.next()) {
 				if(username.equals(set.getString(2)) && passwordHash.equals(set.getString(3))) {
 					flag=true;
+					idUser = set.getInt(1);
 					break;
 				}
 			}
@@ -105,7 +107,7 @@ public class AuthSvlt extends HttpServlet {
 			if(flag) {
 				response.getWriter().write("trovato");
 				HttpSession session = request.getSession();
-	            session.setAttribute("username", username);
+	            session.setAttribute("idUser", idUser);
 			}else {
 				response.getWriter().write("non trovato");
 			}

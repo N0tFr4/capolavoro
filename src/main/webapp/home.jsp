@@ -30,7 +30,7 @@
 
         <div id="overlay" class="overlay">
             <div id="form-container" class="form-container">
-                <form class="form" accept-charset="utf-8" onsubmit="wrapper()">
+                <form class="form" accept-charset="utf-8" id="addTrans">
                     <div class="form-group">
                       <label for="amount">Amount</label>
                       <input required placeholder="How much?" name="amount" id="amount" type="text">

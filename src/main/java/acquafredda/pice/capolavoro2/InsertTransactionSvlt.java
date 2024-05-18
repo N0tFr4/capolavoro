@@ -38,15 +38,15 @@ public class InsertTransactionSvlt extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String amount=request.getParameter("amount");
 		String date=request.getParameter("date");
-		String type=request.getParameter("type");
+		String type=request.getParameter("typeT");
 		
-		System.out.println("amount = "+ amount);
-		System.out.println("amount = "+ date);
-		System.out.println("amount = "+ type);
+//		System.out.println("amount = "+ amount);
+//		System.out.println("dates = "+ date);
+//		System.out.println("type = "+ type);
 		
 		int userId = 0;
-		String sender = null;
-		String reason = null;
+		String sender = request.getParameter("sender");
+		String reason = request.getParameter("reason");
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -55,13 +55,11 @@ public class InsertTransactionSvlt extends HttpServlet {
 		int amountInt = Integer.parseInt(amount);
 		
 		HttpSession session = request.getSession();
-		String username = (String) session.getAttribute("username");
+		Integer id =(Integer) session.getAttribute("idUser");
 		
 		if(type == "income") {
-			sender=request.getParameter("sender");
 			reason = null;
 		}else {
-			reason=request.getParameter("reason");
 			sender = null;
 		}
 		
@@ -72,17 +70,17 @@ public class InsertTransactionSvlt extends HttpServlet {
 		try {
 			
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-			String query="SELECT user_id FROM users WHERE user_nickname = ?";
-			PreparedStatement ps=conn.prepareStatement(query);
-			ps.setString(1, username);
-			
-			ResultSet rs = ps.executeQuery();
-			
-			
-			
-			if(rs.next()) {
-				userId = rs.getInt("user_id");
-			}
+//			String query="SELECT user_id FROM users WHERE user_nickname = ?";
+//			PreparedStatement ps=conn.prepareStatement(query);
+//			ps.setString(1, username);
+//			
+//			ResultSet rs = ps.executeQuery();
+//			
+//			
+//			
+//			if(rs.next()) {
+//				userId = rs.getInt("user_id");
+//			}
 			
 			String query2="INSERT INTO transactions (transaction_type,transaction_amount,transaction_date,transaction_sender,transaction_reason,transaction_usr_id) VALUES (?,?,?,?,?,?)";
 			PreparedStatement ps2=conn.prepareStatement(query2);
@@ -91,7 +89,7 @@ public class InsertTransactionSvlt extends HttpServlet {
 			ps2.setDate(3, new java.sql.Date(dateDate.getTime()));
 			ps2.setString(4, sender);
 			ps2.setString(5, reason);
-			ps2.setInt(6, userId);
+			ps2.setInt(6, id);
 			
 			int rowInserted2= ps2.executeUpdate();
 			System.out.println(rowInserted2);
