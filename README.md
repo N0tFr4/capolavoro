@@ -21,7 +21,7 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a gr
 - Scaricare [connector/J - platform indipendent 8.0.33](https://dev.mysql.com/downloads/connector/j/) e inserirlo nella cartella lib di tomcat
 - Scaricare la repository tramite il comando `git clone https://github.com/N0tFr4/capolavoro.git`
 - Importare il file _capolavoro.sql_ che si trova nella directory **META-INF** tramite il comando `mysql < capolavoro.sql -u iltuoutente -p`
-- Modificare nella directory **WEB-INF** il valore dei context-param DB_USER e DB_PASS in base alla propria configurazione di mySQLServer 
+- Modificare nella directory **WEB-INF** il valore dei context-param _DB_USER_ e _DB_PASS_ in base alla propria configurazione di mySQLServer 
 - Aggiungere il progetto come risorsa disponibile al server tomcat tramite il tasto `Add and Remove` del server su eclipse
 - Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro2/`[^1] e navigare nel sito
 
