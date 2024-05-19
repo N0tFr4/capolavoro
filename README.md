@@ -12,6 +12,8 @@ Questo è il nostro capolavoro, una web app dinamica sviluppata in J2EE e, per l
 
 Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a grandi linee il nostro percorso scolastico in questi 3 anni di indirizzo informatico. Sono stati utilizzati in maniera approfondita argomenti trattati durante il nostro percorso di studi.
 
+***
+
 ### Come utilizzare la nostra repository
 - Scaricare [eclipse](https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers) versione J2EE
 - Scaricare e configurare [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi) su eclipse
@@ -20,4 +22,14 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a gr
 - Scaricare la repository tramite il comando `git clone https://github.com/N0tFr4/capolavoro.git`
 - Importare il file _capolavoro.sql_ che si trova nella cartella **META-INF** tramite il comando `mysql < capolavoro.sql -u iltuoutente -p`
 - Aggiungere il progetto come risorsa disponibile al server tomcat tramite il tasto `Add and Remove` del server su eclipse
-- Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro/` e navigare nel sito
+- Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro2/`[^1] e navigare nel sito
+
+***
+
+_Se si vuole già eseguire una prova di come funziona il sito è possibile fare l'accesso con i 2 account admin:_
+_- user: fraacqua pass: admin_
+_- user: frapice pass: admin_
+_Questi e 2 contengono già dei dati inseriti ed è possibile fin da subito vedere il funzionamento._
+
+
+[^1]: E' presente il numero 2 perchè ci sono stati più progetti con varie prove
