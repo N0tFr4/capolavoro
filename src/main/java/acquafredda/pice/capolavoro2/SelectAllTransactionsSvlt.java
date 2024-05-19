@@ -109,6 +109,7 @@ public class SelectAllTransactionsSvlt extends HttpServlet {
 		
 		session.setAttribute("TransactionsListOutcome", transactionsOutcome);
 		response.sendRedirect("transactions.jsp");
+		
 	}
 
 	/**

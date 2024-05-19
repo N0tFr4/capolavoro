@@ -35,8 +35,6 @@ public class ModifyTransactionSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
 		
 		Integer id= Integer.valueOf(request.getParameter("id"));
 		String amount=request.getParameter("amount");
@@ -44,7 +42,6 @@ public class ModifyTransactionSvlt extends HttpServlet {
 		String type=request.getParameter("typeT");
 		String sender = request.getParameter("sender");
 		String reason = request.getParameter("reason");
-		int userId = 0;
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -85,6 +82,7 @@ public class ModifyTransactionSvlt extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**

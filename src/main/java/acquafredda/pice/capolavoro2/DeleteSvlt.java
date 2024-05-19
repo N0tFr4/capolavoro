@@ -57,6 +57,7 @@ public class DeleteSvlt extends HttpServlet {
             response.sendRedirect("selectalltransactionssvlt");
             
             }catch(SQLException e) {}
+        
 	}
 
 	/**

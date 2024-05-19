@@ -45,7 +45,6 @@ public class InsertTransactionSvlt extends HttpServlet {
 		String type=request.getParameter("typeT");
 		String sender = request.getParameter("sender");
 		String reason = request.getParameter("reason");
-		int userId = 0;
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -86,6 +85,7 @@ public class InsertTransactionSvlt extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**

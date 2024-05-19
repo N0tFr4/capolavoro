@@ -73,6 +73,7 @@ public class UserInfoSvlt extends HttpServlet {
 		
 		session.setAttribute("user", user);
 		response.sendRedirect("info.jsp");
+		
 	}
 
 	/**

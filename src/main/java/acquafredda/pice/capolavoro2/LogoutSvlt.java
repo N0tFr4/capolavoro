@@ -35,6 +35,7 @@ public class LogoutSvlt extends HttpServlet {
 
 		String contextPath=request.getContextPath();
 		response.sendRedirect("index.jsp");
+		
 	}
 
 	/**

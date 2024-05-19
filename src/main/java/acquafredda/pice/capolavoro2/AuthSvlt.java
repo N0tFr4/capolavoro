@@ -70,7 +70,8 @@ public class AuthSvlt extends HttpServlet {
 			}
 		
 		} catch (SQLException e) {
-			e.printStackTrace();}
+			e.printStackTrace();
+			}
 		
 }
 	/**
