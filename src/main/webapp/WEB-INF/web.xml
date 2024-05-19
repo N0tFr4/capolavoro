@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>capolavoro2</display-name>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
   <context-param>
     <description>Stringa di connessione al db mysql</description>
     <param-name>DB_URL</param-name>
     <param-value>jdbc:mysql://localhost:3306/capolavoro?allowPublicKeyRetrieval=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Amsterdam&amp;useSSL=false</param-value>
   </context-param>
+  
   <context-param>
     <description>Username per connessione al db mysql</description>
     <param-name>DB_USER</param-name>
     <param-value>root</param-value>
   </context-param>
+  
   <context-param>
     <description>Password per connessione al db mysql</description>
     <param-name>DB_PASS</param-name>
-    <param-value>root</param-value>
+    <param-value></param-value>
   </context-param>
+  
+  <context-param>
+		<param-name>LANGUAGE</param-name>
+		<param-value>en</param-value>
+	</context-param>
+	<context-param>
+	
+		<param-name>COUNTRY</param-name>
+		<param-value>US</param-value>
+	</context-param>
+	
 </web-app>

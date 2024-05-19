@@ -1,8 +1,5 @@
-/**
- * 
- */
 
- $(document).ready(function() {
+$(document).ready(function() {
 	$('#modUser').submit(function(e) {
 		e.preventDefault();
 		$.ajax({

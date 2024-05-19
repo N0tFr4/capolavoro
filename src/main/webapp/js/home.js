@@ -1,12 +1,10 @@
 
 var typeT = "";
 
-
 document.getElementById("amount").addEventListener("input", function(event) {
 	let valore = event.target.value;
 	event.target.value = valore.replace(/\D/g, '');
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
 	var incomeButton = document.querySelector(".income");
@@ -38,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 });
 
-
-
 $(document).ready(function() {
 	$('#addTrans').submit(function(e) {
 		e.preventDefault();
@@ -51,7 +47,7 @@ $(document).ready(function() {
 				date: $("#date").val(),
 				sender: $("#sender").val(),
 				reason: $("#reason").val(),
-				typeT: typeT 
+				typeT: typeT
 			},
 			async: false,
 			success: function() {
@@ -69,6 +65,3 @@ $(document).ready(function() {
 		});
 	});
 });
-
-
-

@@ -35,13 +35,13 @@ public class ModifyUserSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String name=request.getParameter("firstname");
-		String surname=request.getParameter("surname");
-		String phoneNumber=request.getParameter("phoneNumber");
 		
 		HttpSession session = request.getSession();
 		Integer id = (Integer) session.getAttribute("idUser");
+		
+		String name=request.getParameter("firstname");
+		String surname=request.getParameter("surname");
+		String phoneNumber=request.getParameter("phoneNumber");
 		
 		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
 		final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
@@ -58,9 +58,7 @@ public class ModifyUserSvlt extends HttpServlet {
 			ps.setString(3, phoneNumber);
 			ps.setInt(4, id);
 			
-			int rowInserted2= ps.executeUpdate();
-			System.out.println(rowInserted2);
-			
+			ps.executeUpdate();		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

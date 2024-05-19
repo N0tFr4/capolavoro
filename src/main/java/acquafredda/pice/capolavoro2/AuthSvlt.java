@@ -36,6 +36,7 @@ public class AuthSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		Integer idUser = null;
@@ -49,7 +50,6 @@ public class AuthSvlt extends HttpServlet {
 		
 		try {
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-			//String query="SELECT * FROM users WHERE user_nickname=? AND user_password=?";
 			Statement statement = conn.createStatement();
 			ResultSet set=statement.executeQuery("SELECT * FROM users");
 			boolean flag = false;

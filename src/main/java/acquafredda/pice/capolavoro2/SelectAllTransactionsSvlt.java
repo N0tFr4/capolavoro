@@ -40,24 +40,21 @@ public class SelectAllTransactionsSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
+		HttpSession session = request.getSession();
+		Integer id =(Integer) session.getAttribute("idUser");
 		
 		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
 		final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
 		final String DB_PASS=request.getServletContext().getInitParameter("DB_PASS");
 		Connection conn;
-		HttpSession session = request.getSession();
-		Integer id =(Integer) session.getAttribute("idUser");
+		
 		List<Transaction> transactionsIncome = null;
 		try {
 			
-			String query="SELECT * FROM transactions WHERE transaction_usr_id = ? and transaction_type = ?";
-			
-			
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 			
-			
+			String query="SELECT * FROM transactions WHERE transaction_usr_id = ? and transaction_type = ?";
 			PreparedStatement ps=conn.prepareStatement(query);
 			ps.setInt(1,id);
 			ps.setString(2, "income");
@@ -85,12 +82,9 @@ public class SelectAllTransactionsSvlt extends HttpServlet {
 		List<Transaction> transactionsOutcome = null;
 		try {
 			
-			String query="SELECT * FROM transactions WHERE transaction_usr_id = ? and transaction_type = ?";
-			
-			
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 			
-			
+			String query="SELECT * FROM transactions WHERE transaction_usr_id = ? and transaction_type = ?";
 			PreparedStatement ps=conn.prepareStatement(query);
 			ps.setInt(1,id);
 			ps.setString(2, "outcome");

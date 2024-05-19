@@ -33,12 +33,12 @@ public class InsertSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String name=request.getParameter("firstname");
 		String surname=request.getParameter("surname");
-		String phone_number=request.getParameter("phone_number");
+		String phoneNumber=request.getParameter("phone_number");
 		String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		
+		String password=request.getParameter("password");	
 		
 		String passwordHash = calcolaHashMD5(password);
 		
@@ -54,11 +54,9 @@ public class InsertSvlt extends HttpServlet {
 			ps.setString(2, passwordHash);
 			ps.setString(3, name);
 			ps.setString(4, surname);
-			ps.setString(5, phone_number);
+			ps.setString(5, phoneNumber);
 			
-			int rowInserted=ps.executeUpdate();
-			System.out.println(rowInserted);
-			
+			ps.executeUpdate();		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -35,70 +35,51 @@ public class ModifyTransactionSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+		
 		Integer id= Integer.valueOf(request.getParameter("id"));
 		String amount=request.getParameter("amount");
 		String date=request.getParameter("date");
 		String type=request.getParameter("typeT");
-		
-//		System.out.println("amount = "+ amount);
-//		System.out.println("dates = "+ date);
-//		System.out.println("type = "+ type);
-		
-		int userId = 0;
 		String sender = request.getParameter("sender");
 		String reason = request.getParameter("reason");
-		
-		System.out.println("SENDER = " + sender);
+		int userId = 0;
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			Date dateDate = sdf.parse(date);
 		
-		int amountInt = Integer.parseInt(amount);
-		
-		HttpSession session = request.getSession();
-		
-		if(type == "income") {
-			reason = null;
-		}else if(type == "outcome") {
-			sender = null;
-		}
-		
-		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
-		final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
-		final String DB_PASS=request.getServletContext().getInitParameter("DB_PASS");
-		Connection conn;
-		try {
+			int amountInt = Integer.parseInt(amount);
+	
 			
-			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-//			String query="SELECT user_id FROM users WHERE user_nickname = ?";
-//			PreparedStatement ps=conn.prepareStatement(query);
-//			ps.setString(1, username);
-//			
-//			ResultSet rs = ps.executeQuery();
-//			
-//			
-//			
-//			if(rs.next()) {
-//				userId = rs.getInt("user_id");
-//			}
+			if(type == "income") {
+				reason = null;
+			}else if(type == "outcome") {
+				sender = null;
+			}
 			
-			String query2="UPDATE transactions SET transaction_amount = ?, transaction_date = ?, transaction_sender = ?, transaction_reason = ? WHERE transaction_id = ?";
-			PreparedStatement ps2=conn.prepareStatement(query2);
-			ps2.setInt(1, amountInt);
-			ps2.setDate(2, new java.sql.Date(dateDate.getTime()));
-			ps2.setString(3, sender);
-			ps2.setString(4, reason);
-			ps2.setInt(5, id);
-			
-			int rowInserted2= ps2.executeUpdate();
-			System.out.println(rowInserted2);
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} 
+			final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
+			final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
+			final String DB_PASS=request.getServletContext().getInitParameter("DB_PASS");
+			Connection conn;
+			try {
+				
+				conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+				
+				String query="UPDATE transactions SET transaction_amount = ?, transaction_date = ?, transaction_sender = ?, transaction_reason = ? WHERE transaction_id = ?";
+				PreparedStatement ps=conn.prepareStatement(query);
+				ps.setInt(1, amountInt);
+				ps.setDate(2, new java.sql.Date(dateDate.getTime()));
+				ps.setString(3, sender);
+				ps.setString(4, reason);
+				ps.setInt(5, id);
+				
+				ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
 		
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

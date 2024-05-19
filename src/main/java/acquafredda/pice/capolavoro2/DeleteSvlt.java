@@ -37,8 +37,9 @@ public class DeleteSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String id=request.getParameter("id");
+		Integer idValue=Integer.valueOf(id);
 
         final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
         final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
@@ -49,16 +50,13 @@ public class DeleteSvlt extends HttpServlet {
             conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             String query="DELETE FROM transactions WHERE transaction_id = ?";
             PreparedStatement ps=conn.prepareStatement(query);
-            Integer idValue=Integer.valueOf(id);
             ps.setInt(1, idValue);
 
             ps.executeUpdate();
 
             response.sendRedirect("selectalltransactionssvlt");
             
-            }catch(SQLException e) {
-            	
-            }
+            }catch(SQLException e) {}
 	}
 
 	/**

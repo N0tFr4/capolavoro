@@ -38,21 +38,21 @@ public class UserInfoSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+		Integer id =(Integer) session.getAttribute("idUser");
+		
+		User user = null;
+		
 		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
 		final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
 		final String DB_PASS=request.getServletContext().getInitParameter("DB_PASS");
 		Connection conn;
-		HttpSession session = request.getSession();
-		Integer id =(Integer) session.getAttribute("idUser");
-		User user = null;
 		try {
-			
-			String query="SELECT * FROM users WHERE user_id = ?";
-			
 			
 			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 			
+			String query="SELECT * FROM users WHERE user_id = ?";
 			PreparedStatement ps=conn.prepareStatement(query);
 			ps.setInt(1,id);
 			ResultSet rs = ps.executeQuery();

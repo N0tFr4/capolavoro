@@ -28,14 +28,12 @@ public class LogoutSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		ServletContext context=request.getServletContext();
-		request.getSession().invalidate(); // logout() is not called.
-		request.logout(); // logout() is not called.
-		//String nextPage="index.jsp";
-		//request.getRequestDispatcher(nextPage).forward(request, response);
+		request.getSession().invalidate(); 
+		request.logout();
 
 		String contextPath=request.getContextPath();
-		//Pattern Post-Redirect-Get
 		response.sendRedirect("index.jsp");
 	}
 
