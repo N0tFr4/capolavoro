@@ -20,4 +20,4 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a gr
 - Scaricare la repository tramite il comando `git clone https://github.com/N0tFr4/capolavoro.git`
 - Importare il file _capolavoro.sql_ che si trova nella cartella **META-INF** tramite il comando `mysql < capolavoro.sql -u iltuoutente -p`
 - Aggiungere il progetto come risorsa disponibile al server tomcat tramite il tasto `Add and Remove` del server su eclipse
-- Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro2/` e navigare nel sito
+- Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro/` e navigare nel sito
