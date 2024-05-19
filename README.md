@@ -27,8 +27,8 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a gr
 ***
 
 _Se si vuole già eseguire una prova di come funziona il sito è possibile fare l'accesso con i 2 account admin:_
-_- user: fraacqua pass: admin_
-_- user: frapice pass: admin_
+- _user: fraacqua pass: admin_
+- _user: frapice pass: admin_
 _Questi e 2 contengono già dei dati inseriti ed è possibile fin da subito vedere il funzionamento._
 
 
