@@ -36,49 +36,6 @@ public class AuthSvlt extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*String username=request.getParameter("username");
-		String password=request.getParameter("password");
-		String trovato = "non trovato";
-		
-		System.out.println("username: " + username);
-		System.out.println("pass: " + password);
-		
-		String passwordHash = calcolaHashMD5(password);
-		
-		final String DB_URL=request.getServletContext().getInitParameter("DB_URL");
-		final String DB_USER=request.getServletContext().getInitParameter("DB_USER");
-		final String DB_PASS=request.getServletContext().getInitParameter("DB_PASS");
-		Connection conn;
-		
-		try {
-			conn=DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-			String query="SELECT * FROM users WHERE user_nickname=? AND user_password=?";
-			PreparedStatement ps=conn.prepareStatement(query);
-			ps.setString(1, username);
-			ps.setString(2, passwordHash);
-			ResultSet rs=ps.executeQuery();
-			//rs.next();
-			//nRows= rs.getInt("Totale"); 
-			
-			int rowCount = 0;
-            if (rs.next()) {
-                rowCount = rs.getInt(1); // Il risultato è nella prima colonna
-            }
-			
-			if(rowCount!=0) {
-	        	 trovato = "trovato";
-	        	 response.getWriter().write(trovato);
-	        	 //HttpSession session = request.getSession();
-	        	 //response.sendRedirect("home.jsp");
-	         }
-	         else {
-	        	 response.sendError(500);
-	         }
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-	}*/
-		
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		Integer idUser = null;

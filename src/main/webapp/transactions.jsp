@@ -20,7 +20,7 @@
                 <ul class="links">
                     <li><a href="home.jsp">Home</a></li>
                     <li><a href="selectalltransactionssvlt">Your Transactions</a></li>
-                    <li><a href="info.jsp">Your Account</a></li>
+                    <li><a href="userinfosvlt">Your Account</a></li>
                     <li><a href="logoutsvlt">Logout</a></li>
                 </ul>
             </nav>

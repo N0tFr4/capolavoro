@@ -93,7 +93,7 @@ $(document).ready(function() {
 				updateButtonData($("#transaction-id").val(), $("#amount").val(), $("#date").val(), $("#sender").val(), $("#reason").val());
 			},
 			error: function() {
-				alert('There was an error during the adding of the transaction.');
+				alert('There was an error during the modify of the transaction.');
 				throw new Error('There was an error in the AJAX request');
 			}
 		});
