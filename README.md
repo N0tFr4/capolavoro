@@ -26,10 +26,11 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a gr
 
 ***
 
-_Se si vuole già eseguire una prova di come funziona il sito è possibile fare l'accesso con i 2 account admin:_
+_Se si vuole già eseguire una prova di come funziona il sito è possibile fare l'accesso con i due account admin:_
 - _user: fraacqua pass: admin_
 - _user: frapice pass: admin_
-_Questi 2 profili contengono già dei dati inseriti ed è possibile fin da subito vedere il funzionamento._
+
+_Questi due profili contengono già dei dati inseriti ed è possibile fin da subito vedere il funzionamento._
 
 
 [^1]: E' presente il numero 2 perchè ci sono stati più progetti con varie prove
