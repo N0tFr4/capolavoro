@@ -6,10 +6,18 @@ Questo è il nostro capolavoro, una web app dinamica sviluppata in J2EE e, per l
 - CSS
 - Javascript
 - Tomcat 9.0
-- MySQLServer 8.0
+- MySQLServer Community 8.0
 - Crittografia con algoritmo MD5
+- Librerie JSTL
 
 Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenta a grandi linee il nostro percorso scolastico in questi 3 anni di indirizzo informatico. Sono stati utilizzati in maniera approfondita argomenti trattati durante il nostro percorso di studi.
 
 ### Come utilizzare la nostra repository
-Per utilizzare la nostra repository sarà necessario scaricarla sul vostro pc tramite il comando `git clone https://github.com/N0tFr4/capolavoro.git`
+- Scaricare [eclipse](https://www.eclipse.org/downloads/packages/release/kepler/sr2/eclipse-ide-java-ee-developers) versione J2EE
+- Scaricare e configurare [Tomcat 9.0](https://tomcat.apache.org/download-90.cgi) su eclipse
+- Scaricare ed eseguire [MySQLServer 8.0.36](https://dev.mysql.com/downloads/mysql/)
+- Scaricare [connector/J - platform indipendent 8.0.33](https://dev.mysql.com/downloads/connector/j/) e inserirlo nella cartella lib di tomcat
+- Scaricare la repository tramite il comando `git clone https://github.com/N0tFr4/capolavoro.git`
+- Importare il file _capolavoro.sql_ che si trova nella cartella **META-INF** tramite il comando `mysql < capolavoro.sql -u iltuoutente -p`
+- Aggiungere il progetto come risorsa disponibile al server tomcat tramite il tasto `Add and Remove` del server su eclipse
+- Andare nel browser e inserire l'URL `http://localhost:8080/capolavoro2/` e navigare nel sito
