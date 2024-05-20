@@ -1,6 +1,6 @@
 ## Capolavoro 2023-24 Acquafredda-Pice
 
-Questo è il nostro capolavoro, una web app dinamica sviluppata in J2EE e, per la realizzazione abbiamo utilizzato:
+Questo è il nostro capolavoro, una web app dinamica sviluppata in J2EE. Per la realizzazione abbiamo utilizzato:
 - Java
 - Html 5
 - CSS
@@ -10,7 +10,7 @@ Questo è il nostro capolavoro, una web app dinamica sviluppata in J2EE e, per l
 - Crittografia con algoritmo MD5
 - Librerie JSTL
 
-Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenti a grandi linee il nostro percorso scolastico in questi 3 anni di indirizzo informatico. Sono stati utilizzati in maniera approfondita argomenti trattati durante il nostro percorso di studi.
+Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenti a grandi linee il nostro percorso scolastico. Sono stati applicati numerosi argomenti trattati in aula nel corso percorso di studi ad indirizzo informatico.
 
 ***
 
@@ -27,11 +27,11 @@ Abbiamo scelto questo progetto come capolavoro perchè pensiamo rappresenti a gr
 
 ***
 
-_Se si vuole già eseguire una prova di come funziona il sito è possibile fare l'accesso con i due account admin:_
+_Se si vuole già ottenere un’anteprima del funzionamento del sito è possibile eseguire l'accesso con i due account admin:_
 - _user: fraacqua pass: admin_
 - _user: frapice pass: admin_
 
-_Questi due profili contengono già dei dati inseriti ed è possibile fin da subito vedere il funzionamento._
+_Questi due profili contengono già dei dati inseriti ed è possibile fin da subito osservare il funzionamento del progetto._
 
 
 [^1]: E' presente il numero 2 perchè ci sono stati più progetti con varie prove
